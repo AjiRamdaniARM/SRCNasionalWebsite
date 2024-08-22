@@ -150,8 +150,8 @@ class ParticipantController extends Controller
         $race = Race::where('id', $id)->first();
 
          if ($request->ajax()) {
-            $previousCommunity = null; // Pastikan ini berada di luar fungsi callback
-            $previousMaps = null; // Pastikan ini berada di luar fungsi callback
+            $previousCommunity = null;
+            $previousMaps = null;
 
             $query = Participant::with(['invoice.user'])
                 ->where('race_id', $id)
@@ -181,7 +181,8 @@ class ParticipantController extends Controller
                 })
                 ->addColumn('sesi', function ($query) {
                     $sesiOptions = TableSesi::all();
-                    $dropdown = '<select class="selectSesi" data-id_peserta="'.$query->id_peserta.'">'; // Perhatikan perubahan disini
+                    $dropdown = '<select class="selectSesi" data-id_peserta="'.$query->id_peserta.'">';
+                    $dropdown .= '<option value="">Pilih Sesi</option>';
                     foreach ($sesiOptions as $sesi) {
                         $selected = $query->sesi_id == $sesi->id ? 'selected' : '';
                         $dropdown .= '<option value="'.$sesi->id.'" '.$selected.'>'.$sesi->sesi.'</option>';

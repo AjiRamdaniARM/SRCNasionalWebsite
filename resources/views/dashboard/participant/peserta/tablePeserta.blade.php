@@ -48,7 +48,7 @@
     @push('extra-script')
         <script>
             $(function() {
-                $('#dataTable').DataTable({
+                var table = $('#dataTable').DataTable({
                     processing: true,
                     serverSide: true,
                     ajax: '{!! route('table.participants', ['id' => $race->id]) !!}',
@@ -95,6 +95,7 @@
 
                     ]
                 });
+
                 $(document).on('change', '.selectSesi', function() {
                     var pesertaId = $(this).data('id_peserta'); // Mengambil data-id_peserta dari select
                     var sesiId = $(this).val();
@@ -111,6 +112,7 @@
                             },
                             success: function(response) {
                                 console.log('Response dari server:', response);
+                                table.draw(false); // Refresh data tabel tanpa mereset pagination
                             },
                             error: function(xhr) {
                                 console.log(xhr.responseText);
@@ -120,7 +122,6 @@
                         console.log('error');
                     }
                 });
-
 
             });
         </script>
