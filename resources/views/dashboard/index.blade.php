@@ -51,25 +51,27 @@
                         </div>
                     </a>
                     {{-- === card all participants === --}}
-                    <a style="text-decoration: none; list-style:none;"></a>
-                    <div style="border: 1px solid black" class="bg-white p-6 rounded-lg shadow-sm">
-                        <div class="flex items-baseline">
-                            <span
-                                class="bg-teal-200 text-teal-800 text-xs px-2 inline-block rounded-full  uppercase font-semibold tracking-wide">
-                                Data
-                            </span>
-                            <div class="ml-2 text-gray-600 uppercase text-xs font-semibold tracking-wider">
-                                Participant | All
+                    <a style="text-decoration: none; list-style:none;"
+                        class="hover:text-gray-700 hover:scale-105 transition-all" href="{{ route('participants.excel') }}">
+                        <div style="border: 1px solid black" class="bg-white p-6 rounded-lg shadow-sm">
+                            <div class="flex items-baseline">
+                                <span
+                                    class="bg-teal-200 text-teal-800 text-xs px-2 inline-block rounded-full  uppercase font-semibold tracking-wide">
+                                    Data
+                                </span>
+                                <div class="ml-2 text-gray-600 uppercase text-xs font-semibold tracking-wider">
+                                    Participant | All
+                                </div>
+                            </div>
+
+                            <h4 class="mt-1 text-xl font-semibold uppercase leading-tight truncate">{{ $participants }}
+                            </h4>
+
+                            <div class="mt-1">
+                                Participant Total
                             </div>
                         </div>
-
-                        <h4 class="mt-1 text-xl font-semibold uppercase leading-tight truncate">{{ $participants }}
-                        </h4>
-
-                        <div class="mt-1">
-                            Participant Total
-                        </div>
-                    </div>
+                    </a>
                     {{-- === card all perlombaan === --}}
                     <div style="border: 1px solid black" class="bg-white p-6 rounded-lg shadow-sm">
                         <div class="flex items-baseline">
@@ -477,18 +479,18 @@
                     <input type="hidden" class="border border-black bg-gray-50" x-model="selected" />
                 </div>
             </div>
-<script>
-      // === download file projeck === //
-    function downloadFile(filename) {
-        const url = `../upload/${filename}`;
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = filename;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-    }
-</script>
+            <script>
+                // === download file projeck === //
+                function downloadFile(filename) {
+                    const url = `../upload/${filename}`;
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = filename;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                }
+            </script>
 
         </div>
         <br>

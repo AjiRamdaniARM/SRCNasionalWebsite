@@ -126,6 +126,7 @@ Route::middleware('auth')->group(function () {
 
     // === route export data participants === //
     Route::get('excel/{id}', [ExportController::class, 'excel'])->name('export.excel');
+    Route::get('participants/export', [ExportController::class, 'allexcel'])->name('participants.excel');
     Route::get('pdf/{id}', [ExportController::class, 'pdf'])->name('export.pdf');
 });
 

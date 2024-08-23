@@ -22,6 +22,9 @@
                     <th style="padding: 12px; border-bottom: 2px solid #ddd;">Sekolah</th>
                     <th style="padding: 12px; border-bottom: 2px solid #ddd;">Alamat</th>
                     <th style="padding: 12px; border-bottom: 2px solid #ddd;">Peserta</th>
+                    <th style="padding: 12px; border-bottom: 2px solid #ddd;">Sesi</th>
+                    <th style="padding: 12px; border-bottom: 2px solid #ddd;">Waktu Awal</th>
+                    <th style="padding: 12px; border-bottom: 2px solid #ddd;">Duration</th>
                 </tr>
             </thead>
             <tbody>
@@ -31,6 +34,9 @@
                         <td style="padding: 12px;">{{ $participant->community }}</td>
                         <td style="padding: 12px;">{{ $participant->maps }}</td>
                         <td style="padding: 12px;">{{ $participant->peserta }}</td>
+                        <td style="padding: 12px;">{{ $participant->sesi }}</td>
+                        <td style="padding: 12px;">{{ $participant->waktu_awal }} - {{ $participant->waktu_akhir }}</td>
+                        <td style="padding: 12px;">{{ $participant->duration }}</td>
                     </tr>
                 @endforeach
             </tbody>

@@ -1,11 +1,13 @@
 <x-panel.app>
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@100..900&display=swap');
-    .bebas-neue-regular {
-    font-family: "Bebas Neue", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-  }
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@100..900&display=swap');
+
+        .bebas-neue-regular {
+            font-family: "Bebas Neue", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+        }
+
         .article-card {
             width: 100%;
             height: 220px;
@@ -229,6 +231,10 @@
                             <div class="article-card">
                                 <div class="content">
                                     <p class="date">Total Peserta : {{ $races->participants_count }}</p>
+                                    @if ($races->team)
+                                        <p class="date"> (Jumlah Peserta per Team):
+                                            {{ $races->team_participants_count }}</p>
+                                    @endif
                                     <p class="title">{{ $races->name }}</p>
                                 </div>
                                 <img src="{{ asset('assets/LOMBA.png') }}" alt="article-cover" />

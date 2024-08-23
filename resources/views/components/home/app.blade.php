@@ -196,10 +196,11 @@
             z-index: 1;
         }
 
-          @media (max-width: 768px) {
-                .popup-iklan {
+        @media (max-width: 768px) {
+            .popup-iklan {
                 left: 45%;
             }
+
             .popup-iklan .dismis {
                 right: -15px;
 
@@ -224,7 +225,7 @@
     </script>
     {{-- banner iklan --}}
     <div class="grup-header fixed top-0 left-0 right-0 z-50 ">
-     <div id="iklan" class="popup-iklan">
+        <div id="iklan" class="popup-iklan">
 
             <div class="body">
                 <button onclick="hideElements()" style="border: none" class="dismis">
@@ -233,7 +234,7 @@
                 <a>
                     <div class="content">
                         <!--<img src="assets/img/iklan-1.jpeg" alt="">-->
-                        <img src="{{ asset('assets/iklan/new-iklan.png') }}" alt="">
+                        <img src="{{ asset('assets/iklan/penutupan.png') }}" alt="">
                     </div>
                 </a>
 
