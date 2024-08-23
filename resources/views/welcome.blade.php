@@ -162,7 +162,13 @@
                     @foreach ($data as $datas)
                         <div class="wrapper hover:scale-105 transition-all  antialiased text-gray-900">
                             <div>
-                                <a href="{{ url('detail/' . $datas->id) }}" style="text-decoration: none">
+                                <!--<a href="{{ url('detail/' . $datas->id) }}" style="text-decoration: none">-->
+                                <script>
+                                    function showAlert() {
+                                        alert('Mohon Maaf Pendaftaran sudah ditutup :)')
+                                    }
+                                </script>
+                                <a onclick="showAlert({{ $datas->id }})" style="text-decoration: none">
                                     <img src="{{ $datas->image }}" alt=" random imgee"
                                         class="w-full object-cover object-center rounded-lg shadow-md">
                                 </a>
