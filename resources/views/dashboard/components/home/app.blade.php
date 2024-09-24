@@ -226,7 +226,7 @@
         class="lg:hidden hidden slide-top  fixed inset-x-0 bottom-0 h-[40em] rounded-t-[80px] z-50  bg-white shadow-md">
         <button onclick="deleteModal()"
             class="dismiss relative right-10 -bottom-10 w-full flex justify-end items-endr ">
-            <?xml version="1.0" encoding="UTF-8"?>
+
             <svg width="30px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink">
                 <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
@@ -248,7 +248,7 @@
                 class="lg:hidden relative -bottom-10 grid grid-cols-2 gap-4 md:grid-cols-4  font-medium  inter text-[17px] text-black">
                 <li class=" bg-white border-black flex flex-col justify-start items-center  rounded-lg text-black py-2">
                     <a href="{{ url('/') }}" style="text-decoration:none">
-                        <?xml version="1.0" encoding="utf-8"?>
+
                         <svg width="60px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd"
                                 d="M2.33537 7.87495C1.79491 9.00229 1.98463 10.3208 2.36407 12.9579L2.64284 14.8952C3.13025 18.2827 3.37396 19.9764 4.54903 20.9882C5.72409 22 7.44737 22 10.8939 22H13.1061C16.5526 22 18.2759 22 19.451 20.9882C20.626 19.9764 20.8697 18.2827 21.3572 14.8952L21.6359 12.9579C22.0154 10.3208 22.2051 9.00229 21.6646 7.87495C21.1242 6.7476 19.9738 6.06234 17.6731 4.69181L16.2882 3.86687C14.199 2.62229 13.1543 2 12 2C10.8457 2 9.80104 2.62229 7.71175 3.86687L6.32691 4.69181C4.02619 6.06234 2.87583 6.7476 2.33537 7.87495ZM13.45 16.5095C12.6422 15.6377 11.3581 15.6377 10.5503 16.5095C10.2688 16.8134 9.79427 16.8315 9.49041 16.55C9.18656 16.2684 9.16845 15.7939 9.44996 15.4901C10.8514 13.9775 13.1489 13.9775 14.5503 15.4901C14.8318 15.7939 14.8137 16.2684 14.5099 16.55C14.206 16.8315 13.7315 16.8134 13.45 16.5095ZM8.55029 14.3505C10.4626 12.2864 13.5376 12.2864 15.4499 14.3505C15.7315 14.6544 16.206 14.6725 16.5098 14.391C16.8137 14.1095 16.8318 13.6349 16.5503 13.3311C14.0443 10.6262 9.9559 10.6262 7.44995 13.3311C7.16844 13.6349 7.18655 14.1095 7.4904 14.391C7.79425 14.6725 8.26878 14.6544 8.55029 14.3505ZM17.4499 12.192C14.433 8.93571 9.56716 8.93571 6.55027 12.192C6.26876 12.4959 5.79423 12.514 5.49038 12.2325C5.18653 11.951 5.16842 11.4764 5.44993 11.1726C9.06046 7.27552 14.9397 7.27552 18.5503 11.1726C18.8318 11.4764 18.8137 11.951 18.5098 12.2325C18.206 12.514 17.7314 12.4959 17.4499 12.192Z"
@@ -260,7 +260,7 @@
                 <li class=" bg-white border-black   rounded-lg text-black py-2">
                     <a href="#competition" class="flex flex-col justify-center items-center  "
                         style="text-decoration:none">
-                        <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                        <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
                         <svg width="60px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M20.5 6.5L18.5 4.5M9.5 2.5H13.5M7.2 12.2143L9.2 10.5V16.5M19.5 13.5C19.5 17.9183 15.9183 21.5 11.5 21.5C7.08172 21.5 3.5 17.9183 3.5 13.5C3.5 9.08172 7.08172 5.5 11.5 5.5C15.9183 5.5 19.5 9.08172 19.5 13.5ZM13.7 16.5C12.8716 16.5 12.2 15.8284 12.2 15V12C12.2 11.1716 12.8716 10.5 13.7 10.5C14.5284 10.5 15.2 11.1716 15.2 12V15C15.2 15.8284 14.5284 16.5 13.7 16.5Z"
@@ -272,7 +272,7 @@
                 <li class=" bg-white border-black   rounded-lg text-black py-2">
                     <a href="#directive" class="flex flex-col gap-2 justify-center items-center"
                         style="text-decoration:none">
-                        <?xml version="1.0" encoding="utf-8"?>
+
                         <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
                         <svg fill="#1C274C" width="60px" viewBox="0 0 32 32" version="1.1"
                             xmlns="http://www.w3.org/2000/svg">
@@ -287,7 +287,7 @@
                 <li class=" bg-white border-black   rounded-lg text-black py-2">
                     <a href="#galeri" class="flex flex-col gap-2 justify-center items-center  "
                         style="text-decoration:none">
-                        <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                        <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
                         <svg width="60px" fill="#1C274C" viewBox="0 0 32 32" version="1.1"
                             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                             xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" fill="#1C274C">
@@ -314,7 +314,7 @@
                 <li class=" bg-white border-black   rounded-lg text-black py-2">
                     <a href="#lokasi" class="flex flex-col gap-2 justify-center items-center"
                         style="text-decoration:none">
-                        <?xml version="1.0" encoding="UTF-8"?>
+
                         <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
                         <svg width="60px" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg"
                             xmlns:xlink="http://www.w3.org/1999/xlink">

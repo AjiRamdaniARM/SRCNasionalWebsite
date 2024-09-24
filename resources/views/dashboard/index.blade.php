@@ -25,7 +25,7 @@
     <div class=" py-5">
         <h1 class="text-center text-style-gradient inter font-bold bebas-neue-regular text-7xl lg:text-8xl ">
             WELCOME TO
-            SRC
+            BRC
             2024</h1>
         <div class="grid lg:grid-cols-2 grid-cols-1  gap-10 py-5 justify-center ">
             @role('admin')
@@ -36,7 +36,7 @@
                         <div style="border: 1px solid black" class="bg-white p-6  rounded-lg shadow-sm ">
                             <div class="flex items-baseline">
                                 <span
-                                    class="bg-teal-200 text-teal-800 text-xs px-2 inline-block rounded-full  uppercase font-semibold tracking-wide">
+                                    class="bg-orange-500 text-white text-xs px-2 inline-block rounded-full  uppercase font-semibold tracking-wide">
                                     Data
                                 </span>
                                 <div class="ml-2 text-gray-600 uppercase text-xs font-semibold tracking-wider">
@@ -56,7 +56,7 @@
                         <div style="border: 1px solid black" class="bg-white p-6 rounded-lg shadow-sm">
                             <div class="flex items-baseline">
                                 <span
-                                    class="bg-teal-200 text-teal-800 text-xs px-2 inline-block rounded-full  uppercase font-semibold tracking-wide">
+                                    class="bg-orange-500 text-white text-xs px-2 inline-block rounded-full  uppercase font-semibold tracking-wide">
                                     Data
                                 </span>
                                 <div class="ml-2 text-gray-600 uppercase text-xs font-semibold tracking-wider">
@@ -76,7 +76,7 @@
                     <div style="border: 1px solid black" class="bg-white p-6 rounded-lg shadow-sm">
                         <div class="flex items-baseline">
                             <span
-                                class="bg-teal-200 text-teal-800 text-xs px-2 inline-block rounded-full  uppercase font-semibold tracking-wide">
+                                class="bg-orange-500 text-white text-xs px-2 inline-block rounded-full  uppercase font-semibold tracking-wide">
                                 Data
                             </span>
                             <div class="ml-2 text-gray-600 uppercase text-xs font-semibold tracking-wider">
@@ -141,12 +141,11 @@
             </div>
         @endrole
         @role('participant')
-
             <div class="grup flex flex-col gap-4">
                 <div class="bg-white p-6 border-2 border-black rounded-lg shadow-sm">
                     <div class="flex items-baseline">
                         <span
-                            class="bg-blue-800 text-white text-xs px-2 inline-block rounded-full  uppercase font-semibold tracking-wide">
+                            class="bg-orange-500  text-white text-xs px-2 inline-block rounded-full  uppercase font-semibold tracking-wide">
                             Data
                         </span>
                         <div class="ml-2 text-gray-600 uppercase text-xs font-semibold tracking-wider">
@@ -162,7 +161,7 @@
                 <div class="bg-white p-6 border-2 border-black rounded-lg shadow-sm">
                     <div class="flex items-baseline">
                         <span
-                            class="bg-blue-800 text-white text-xs px-2 inline-block rounded-full  uppercase font-semibold tracking-wide">
+                            class="bg-orange-500 text-white text-xs px-2 inline-block rounded-full  uppercase font-semibold tracking-wide">
                             Data
                         </span>
                         <div class="ml-2 text-gray-600 uppercase text-xs font-semibold tracking-wider">
@@ -228,114 +227,7 @@
             {{-- === script chart js === --}}
 
             {{-- === buat kondisi ===  --}}
-            @if (is_null($notif))
-                <script>
-                    console.log('tidak ada data notifikasi');
-                </script>
-            @else
-                @if ($notif->status == 'ada')
-                    <img src="{{ asset('assets/seleksi_lulius_1.png') }}" class="w-full rounded-lg" alt="">
-                    <img src="{{ asset('assets/informan.png') }}" class="w-full rounded-lg" alt="">
-                @endif
-            @endif
         </div>
-        @if ($getDataSeleksiPay && $getDataSeleksiPay->status == 'paid')
-            <h2 class="text-center text-style-gradient inter font-bold bebas-neue-regular text-7xl lg:text-8xl ">
-                UPLOADED SELEKSI 2</h2>
-            <form id="seleksi2" enctype="multipart/form-data">
-                @csrf
-                <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-8 w-full  py-2  ">
-                    <div class="lg:col-span-2">
-                        <div class="bg-white rounded mt-4 ">
-                            <div class="border-t">
-                                <div class="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-10 p-10 pb-8">
-                                    <div class="lg:col-span-2">
-                                        <label class="text-xs font-semibold" for="cardNumber">Ketentuan Upload</label>
-                                        <div class="flex items-center h-full border mt-1 rounded px-4 w-full text-sm"
-                                            id="textUpload">Upload file project menggunakan file zip untuk web dan pdf / png
-                                            / jpeg untuk design
-                                        </div>
-                                    </div>
-                                    <div class="">
-                                        <label class="text-xs font-semibold" for="cardNumber">Upload File</label>
-                                        <input class="flex items-center h-10 border mt-1 rounded w-full text-sm"
-                                            type="file" name="file" id="file" required>
-                                    </div>
-                                    <div class="">
-                                        <label class="text-xs font-semibold" for="cardNumber">Nama Team / Individu -
-                                            project</label>
-                                        <input class="flex items-center h-10 border mt-1 rounded px-4 w-full text-sm"
-                                            type="text" name="name" id="file"
-                                            placeholder="Cth:Subot - Web or Design" required>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="bg-white rounded mt-4 py-6">
-                            <div class="px-8 mt-4">
-                            </div>
-                            <div class="px-8 mt-4 border-t pt-3">
-                                <div class="flex items-end justify-between">
-                                    <span class="font-semibold">Total </span>
-                                    <span id="uploadCount" class="font-semibold text-green-500">+0</span>
-                                </div>
-                                <span class="text-xs text-gray-500 mt-2">File Uploaded</span>
-                            </div>
-                            <div class="flex flex-col px-8 pt-4">
-                                <button type="submit"
-                                    class="flex items-center justify-center bg-blue-600 text-sm font-medium w-full h-10 rounded text-blue-50 hover:bg-blue-700">Kirim
-                                    File</button>
-                                <a class="text-xs text-blue-500 mt-3 underline">Punya Kendala ?</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
-            <script>
-                $(document).ready(function() {
-                    loadUploadCount();
-
-                    $('#seleksi2').on('submit', function(e) {
-                        e.preventDefault();
-                        let formData = new FormData(this);
-                        $('#loading').show(); // Tampilkan loading
-                        $.ajax({
-                            url: "{{ route('upload.seleksi2') }}",
-                            method: "POST",
-                            data: formData,
-                            processData: false,
-                            contentType: false,
-                            success: function(response) {
-                                $('#textUpload').text('anda sudah upload file pertama');
-                                loadUploadCount();
-                                $('#loading').hide(); // Sembunyikan loading setelah selesai
-                            },
-                            error: function(response) {
-                                console.log(response);
-                                $('#loading').hide(); // Sembunyikan loading meskipun gagal
-                            }
-                        });
-                    });
-
-                    function loadUploadCount() {
-                        $.ajax({
-                            url: "{{ route('dashboard') }}",
-                            method: "GET",
-                            success: function(response) {
-                                $('#uploadCount').text(response.total);
-                            }
-                        });
-                    }
-                });
-            </script>
-        @elseif (is_null($getDataSeleksiPay))
-            <script>
-                console.log('tidak ada data');
-            </script>
-        @endif
     @endrole
     @role('participant')
         <br>
@@ -406,223 +298,6 @@
         </div>
     @endrole
     @role('admin')
-        {{-- === table seleksi 2 === --}}
-        <div class="flex h-full flex-col justify-center">
-            <!-- Table -->
-            <div class="mx-auto w-full  border-2 border-black rounded-sm bg-white shadow-md">
-                <div class="overflow-x-auto p-3">
-                    <header class="border-b border-gray-100  py-4 flex justify-between items-center">
-                        <div class="font-semibold text-gray-800">Manage Perlombaan Online Seleksi 2</div>
-                    </header>
-                    <table class="w-full table-auto">
-                        <thead class="bg-yellow-500 text-xs font-semibold uppercase text-black">
-                            <tr>
-                                <th class="p-2">No</th>
-                                <th class="p-2">
-                                    <div class="text-left font-semibold">File Name</div>
-                                </th>
-
-                                <th class="p-2">
-                                    <div class="text-left font-semibold">Seleksi</div>
-                                </th>
-                                <th class="p-2">
-                                    <div class="text-left font-semibold">Status</div>
-                                </th>
-                                <th class="p-2">
-                                    <div class="text-center font-semibold">Action</div>
-                                </th>
-                            </tr>
-                        </thead>
-
-                        <tbody class="divide-y divide-gray-100 text-sm">
-                            <!-- record 1 -->
-                            @foreach ($getSeleksiUpload as $online)
-                                <tr>
-                                    <td class="p-2">
-                                        {{ $loop->iteration }}
-                                    </td>
-                                    <td class="p-2">
-                                        <div class="font-medium text-gray-800">{{ $online->name_project }}
-                                        </div>
-                                    </td>
-                                    <td class="p-2">
-                                        <div class="font-medium text-gray-800">{{ $online->seleksi }}
-                                        </div>
-                                    </td>
-                                    <td class="p-2">
-                                        @if ($online->status == 'sudah upload')
-                                            <div class="text-left font-medium text-green-500">
-                                                {{ $online->status }}</div>
-                                        @elseif ($online->id_seleksi == 'belum upload')
-                                            <div class="text-left font-medium text-red-500">
-                                                {{ $online->status }}</div>
-                                        @endif
-                                    </td>
-                                    <td class="p-2 flex justify-center gap-2">
-                                        <button onclick="downloadFile('{{ $online->name_project }}')">
-                                            <div class="download text-left font-medium text-blue-500 ">Download</div>
-                                        </button>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- total amount -->
-                <div class="flex justify-end space-x-4 border-t border-gray-100 px-5 py-4 text-1xl font-bold">
-                    <div>Data Participants Online</div>
-                </div>
-
-                <div class="flex justify-end">
-                    <!-- send this data to backend (note: use class 'hidden' to hide this input) -->
-                    <input type="hidden" class="border border-black bg-gray-50" x-model="selected" />
-                </div>
-            </div>
-            <script>
-                // === download file projeck === //
-                function downloadFile(filename) {
-                    const url = `../upload/${filename}`;
-                    const a = document.createElement('a');
-                    a.href = url;
-                    a.download = filename;
-                    document.body.appendChild(a);
-                    a.click();
-                    document.body.removeChild(a);
-                }
-            </script>
-
-        </div>
-        <br>
-        {{-- === table seleksi 1 === --}}
-        <div class="flex h-full flex-col justify-center">
-            <!-- Table -->
-            <div class="mx-auto w-full  border-2 border-black rounded-sm bg-white shadow-md">
-                <div class="overflow-x-auto p-3">
-                    <header class="border-b border-gray-100  py-4 flex justify-between items-center">
-                        <div class="font-semibold text-gray-800">Manage Perlombaan Online seleksi 1</div>
-                        <div class="grup-container-button flex gap-2">
-                            <button onclick="window.dialogOnline.showModal();"
-                                class="font-semibold text-white px-3 py-1  rounded-sm hover:scale-105 hover:bg-blue-800 bg-blue-500 text-[10px] lg:text-[15px] ">
-                                Payment Seleksi</button>
-                            <button onclick="window.location.href='{{ route('upload.index') }}'"
-                                class="font-semibold text-white px-3 py-1  rounded-sm hover:scale-105 hover:bg-blue-800 bg-blue-500 text-[10px] lg:text-[15px] ">
-                                Semua Upload</button>
-                        </div>
-
-                    </header>
-                    <table class="w-full table-auto">
-                        <thead class="bg-yellow-500 text-xs font-semibold uppercase text-black">
-                            <tr>
-                                <th class="p-2">No</th>
-                                <th class="p-2">
-                                    <div class="text-left font-semibold">Product Name</div>
-                                </th>
-                                <th class="p-2">
-                                    <div class="text-left font-semibold">Kelas</div>
-                                </th>
-                                <th class="p-2">
-                                    <div class="text-left font-semibold">Seleksi</div>
-                                </th>
-                                <th class="p-2">
-                                    <div class="text-left font-semibold">Status</div>
-                                </th>
-                                <th class="p-2">
-                                    <div class="text-left font-semibold">Seleksi</div>
-                                </th>
-                                <th class="p-2">
-                                    <div class="text-center font-semibold">Action</div>
-                                </th>
-                            </tr>
-                        </thead>
-
-                        <tbody class="divide-y divide-gray-100 text-sm">
-                            <!-- record 1 -->
-                            @foreach ($pesertaOnline as $pesertaOnlines)
-                                <tr>
-                                    <td class="p-2">
-                                        {{ $loop->iteration }}
-                                    </td>
-                                    <td class="p-2">
-                                        <div class="font-medium text-gray-800">{{ $pesertaOnlines->name }}
-                                        </div>
-                                    </td>
-                                    <td class="p-2">
-                                        <div class="text-left">{{ $pesertaOnlines->kelas }}</div>
-                                    </td>
-                                    <td class="p-2">
-                                        @if ($pesertaOnlines->id_seleksi == 0)
-                                            <div class="text-left font-medium text-blue-500">prosses</div>
-                                        @elseif ($pesertaOnlines->id_seleksi == 1)
-                                            <div class="text-left font-medium text-green-500">lolos</div>
-                                        @elseif ($pesertaOnlines->id_seleksi == 2)
-                                            <div class="text-left font-medium text-red-500">tidak lolos</div>
-                                        @endif
-                                    </td>
-                                    <td class="p-2">
-                                        @if ($pesertaOnlines->status == 'sudah upload')
-                                            <div class="text-left font-medium text-green-500">
-                                                {{ $pesertaOnlines->status }}</div>
-                                        @elseif ($pesertaOnlines->id_seleksi == 'belum upload')
-                                            <div class="text-left font-medium text-red-500">
-                                                {{ $pesertaOnlines->status }}</div>
-                                        @endif
-                                    </td>
-                                    <td class="p-2">
-                                        <div class="font-medium text-gray-800">{{ $pesertaOnlines->seleksi }}
-                                        </div>
-                                    </td>
-                                    <td class="p-2 flex justify-center gap-2">
-                                        <form id="seleksi-form-lolos{{ $pesertaOnlines->id }}"
-                                            action="{{ url('/dashboard/seleksi/' . $pesertaOnlines->id_peserta) }}"
-                                            method="POST">
-                                            @csrf
-                                            <div class="flex justify-center gap-5">
-                                                <input name="seleksi" type="text" value="1" hidden>
-                                                <input type="text" name="races"
-                                                    value="{{ $pesertaOnlines->race_id }}" hidden>
-                                                <input type="text" name="id_user"
-                                                    value="{{ $pesertaOnlines->userID }}" hidden>
-                                                <button type="submit"
-                                                    class="bg-green-500 hover:scale-105 text-white px-2">Lolos</button>
-                                            </div>
-                                        </form>
-                                        <form id="seleksi-form-tidak-lolos{{ $pesertaOnlines->id }}"
-                                            action="{{ url('dashboard/seleksi/' . $pesertaOnlines->id_peserta) }}"
-                                            method="POST">
-                                            @csrf
-                                            <div class="flex justify-center gap-5">
-                                                <input name="seleksi" type="text" value="2" hidden>
-                                                <input type="text" name="races"
-                                                    value="{{ $pesertaOnlines->race_id }}" hidden>
-                                                <input type="text" name="id_user"
-                                                    value="{{ $pesertaOnlines->userID }}" hidden>
-                                                <button type="submit"
-                                                    class="bg-red-500 hover:scale-105 text-white px-2 ">Tidak
-                                                    Lolos</button>
-                                            </div>
-                                        </form>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- total amount -->
-                <div class="flex justify-end space-x-4 border-t border-gray-100 px-5 py-4 text-1xl font-bold">
-                    <div>Data Participants Online</div>
-                </div>
-
-                <div class="flex justify-end">
-                    <!-- send this data to backend (note: use class 'hidden' to hide this input) -->
-                    <input type="hidden" class="border border-black bg-gray-50" x-model="selected" />
-                </div>
-            </div>
-
-
-        </div>
-
         <main>
             @include('dashboard.elements.voucher')
         </main>

@@ -20,11 +20,11 @@
                 <div class="container">
 
                     {{-- Page Heading --}}
-                    @if(isset($title))
+                    @if (isset($title))
                         <h1 class="h3 mb-2 text-gray-800">{{ $title }}</h1>
                     @endif
 
-                    @if(isset($desc))
+                    @if (isset($desc))
                         <p class="mb-4">{{ $desc }}</p>
                     @endif
 
@@ -43,7 +43,7 @@
     </div>
     {{-- End of Page Wrapper --}}
 
-    {{-- Scroll to Top Button--}}
+    {{-- Scroll to Top Button --}}
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
@@ -51,8 +51,8 @@
     @include('components.panel.footer')
     <script src="{{ asset('vendor/sweetalert/sweetalert.all.js') }}"></script>
     <script>
-    $('.show_confirm').click(function(event) {
-            var form =  $(this).closest("form");
+        $('.show_confirm').click(function(event) {
+            var form = $(this).closest("form");
             var name = $(this).data("name");
             event.preventDefault();
             Swal.fire({
@@ -64,10 +64,10 @@
             }).then((willDelete) => {
                 if (willDelete.isConfirmed) {
                     form.submit();
-                    }
-                });
+                }
+            });
         });
     </script>
 </body>
-   
+
 </html>

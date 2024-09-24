@@ -27,33 +27,28 @@
     </dialog>
     {{-- akhir component modal konsultasi --}}
 
-    <div class="relative mt-10 "> <!-- Adjust the top margin to account for the fixed navbar height -->
+    <div class="relative mt-10">
         <div class="mx-auto">
             <div class="banner w-full h-96 relative">
-                <div class="text absolute inset-0 m-5 flex flex-col lg:items-center justify-center lg:-bottom-10 z-10">
-                    <img width="500" class="lg:block  hidden" src="{{ asset('assets/logo-src.png') }}"
-                        alt="">
-                    {{-- <h1 class="text-white text-4xl lg:block hidden lg:text-9xl font-bold bebas-neue-regular ">SRC</h1>
-                    <h1 class="text-white text-4xl lg:hidden block lg:text-5xl font-bold bebas-neue-regular ">SUKABUMI ROBOTIC COMPETITION</h1> --}}
-                    {{-- <p class="lg:text-center text-white lg:w-[60em] lg:block">SRC ( Sukabumi Robotic Competition ) merupakan salah satu salah satu ajang kompetisi robotik tingkat nasional <span class="hidden lg:block">yang di selenggarakan di sukabumi bekerjasama dengan Universitas nusa putra danhimpunan mahasiswa elektro universitas nusa putra guna menumbuhkan kecintaan anak-anak Indonesia terhadap teknologi.</span> </p> --}}
-                    <!--<button onclick="window.location.href='#competition'" class="relative -bottom-20 lg:-bottom-10 text-black  lg:left-0 bg-yellow-400 border-black border-2 font-bold  hover:text-black border-2 px-10  py-2 hover:scale-105 transition-all shadow-md ">SEMUA KOMPETISI</button>-->
+                <div class="text absolute inset-0 flex items-center justify-center z-10">
+                    <img class="w-56 md:w-56 lg:w-64 xl:w-72" src="{{ asset('assets/logo-src.png') }}" alt="logo-brc">
                 </div>
                 <img src="{{ asset('assets/banner2.jpg') }}" alt="banner"
-                    class="banner-img w-full h-full relative top-15 object-center  object-cover lg:block hidden ">
-                <img src="{{ asset('assets/Poster_Cover.jpg') }}" alt="banner"
-                    class="banner-img w-full h-full  object-cover lg:hidden block ">
+                    class="banner-img w-full h-full lg:object-center object-cover object-left-bottom
+                ">
             </div>
         </div>
     </div>
 
-    <div class="flex flex-wrap gap-1">
+
+    {{-- <div class="flex flex-wrap gap-1">
         <div class="timeline container py-4 ">
             <img src="{{ asset('assets/timeline_update.gif') }}" class="w-full rounded-lg" alt="">
         </div>
-    </div>
+    </div> --}}
 
     {{-- == component view pdf == --}}
-    <div class="container">
+    {{-- <div class="container">
         <!-- PDF Pertama -->
         <div class="mb-4 relative">
             <!-- Skeleton Loader -->
@@ -72,7 +67,7 @@
                 src="https://docs.google.com/gview?url={{ asset('assets/RUNDOWN ACARA SRC NASIONAL 2024.pdf') }}&embedded=true"
                 frameborder="0" class="w-full h-96 rounded-lg"></iframe>
         </div>
-    </div>
+    </div> --}}
 
     <script>
         document.querySelectorAll('iframe').forEach(iframe => {
@@ -107,8 +102,6 @@
     {{-- == component view pdf == --}}
 
     <br>
-
-
     <div class="px-4  mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-5">
         <div class="flex flex-col justify-between lg:flex-row">
             <div class="mb-12 lg:max-w-lg lg:pr-5 lg:mb-0">
@@ -168,7 +161,7 @@
                                         alert('Mohon Maaf Pendaftaran sudah ditutup :)')
                                     }
                                 </script>
-                                <a onclick="showAlert({{ $datas->id }})" style="text-decoration: none">
+                                <a href="#" style="text-decoration: none">
                                     <img src="{{ $datas->image }}" alt=" random imgee"
                                         class="w-full object-cover object-center rounded-lg shadow-md">
                                 </a>
@@ -177,13 +170,25 @@
                                         <div class="flex items-baseline">
                                             @if ($datas->category->name == 'online')
                                                 <span
-                                                    class="bg-yellow-200 text-teal-800 text-xs px-2 inline-block rounded-full  uppercase font-semibold tracking-wide">
+                                                    class="bg-blue-200 text-teal-800 text-xs px-2 inline-block rounded-full  uppercase font-semibold tracking-wide">
                                                     {{ $datas->category->name }}
                                                 </span>
                                             @else
                                                 <span
-                                                    class="bg-teal-200 text-teal-800 text-xs px-2 inline-block rounded-full  uppercase font-semibold tracking-wide">
+                                                    class="bg-blue-200 text-teal-800 text-xs px-2 inline-block rounded-full  uppercase font-semibold tracking-wide">
                                                     {{ $datas->category->name }}
+                                                </span>
+                                            @endif
+                                            &nbsp;
+                                            @if ($datas->team == 1)
+                                                <span
+                                                    class="bg-orange-500 text-white text-xs px-2 inline-block rounded-full  uppercase font-semibold tracking-wide">
+                                                    team
+                                                </span>
+                                            @else
+                                                <span
+                                                    class="bg-orange-500 text-white text-xs px-2 inline-block rounded-full  uppercase font-semibold tracking-wide">
+                                                    individu
                                                 </span>
                                             @endif
                                             <div
@@ -192,7 +197,7 @@
                                             </div>
                                         </div>
 
-                                        <h4 class="mt-1 text-xl font-semibold uppercase leading-tight truncate">
+                                        <h4 class="mt-1 text-[17px] font-semibold uppercase leading-tight ">
                                             {{ $datas->name }}</h4>
 
                                         <div class="mt-1">
@@ -365,7 +370,7 @@
                         GALLERY
                     </h2>
                     <p class="mt-0 mb-4 lg:text-white">
-                        SUKABUMI ROBOTIK COMPETITION
+                        BOGOR ROBOTIK COMPETITION
                     </p>
                 </div>
                 <div class="hidden lg:mt-8 lg:flex lg:gap-4">
@@ -416,7 +421,7 @@
         <div class="sponsor container lg:p-[60px] p-4 lg:max-w-screen-xl">
             <div class=" flex flex-col justify-center items-center">
                 <h1 class="text-3xl sm:text-4xl leading-normal font-extrabold tracking-tight text-gray-900">Organizer &
-                    Supporter Sukabumi <span class="text-blue-500">Robotik Competition</span></h1>
+                    Supporter Bogor <span class="text-blue-500">Robotik Competition</span></h1>
                 <div class="grup py-5 flex flex-wrap gap-4 justify-center lg:justify-start">
                     @foreach ($organize as $organized)
                         <div class="flex items-center justify-center p-2 border border-gray-200">
@@ -428,7 +433,7 @@
 
             <div class=" flex flex-col justify-center items-center">
                 <h1 class="text-3xl sm:text-4xl leading-normal font-extrabold tracking-tight text-gray-900">Media
-                    Partner Sukabumi <span class="text-blue-500">Robotik Competition</span></h1>
+                    Partner Bogor <span class="text-blue-500">Robotik Competition</span></h1>
                 <div class="grup py-5 flex flex-wrap gap-4 justify-center lg:justify-start">
 
                     @foreach ($mediapartner as $organized)
@@ -441,7 +446,7 @@
 
             <div class=" flex flex-col justify-center items-center">
                 <h1 class="text-3xl sm:text-4xl leading-normal font-extrabold tracking-tight text-gray-900">Sponsor
-                    Sukabumi <span class="text-blue-500">Robotik Competition</span></h1>
+                    Bogor <span class="text-blue-500">Robotik Competition</span></h1>
 
                 <div class="grup py-5 flex flex-wrap gap-4 justify-center lg:justify-start">
                     @foreach ($sponsor as $sponsores)
@@ -486,8 +491,6 @@
             </div>
         </div>
         <img src="assets/bgBlue.svg" class="w-full h-96 object-cover" alt="">
-
-
 
 
     </div>

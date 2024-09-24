@@ -8,6 +8,13 @@
     <link rel="stylesheet" href="{{ asset('css/globalFont.css') }}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+        .inter {
+         font-family: "Inter", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+        } 
         .slide-top {
             -webkit-animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
             animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
@@ -130,7 +137,7 @@
 </head>
 
 <body>
-    <!--popupiklan-->
+
     <style type="text/css">
         .left {
             text-align: left;
@@ -223,56 +230,55 @@
             document.getElementById("iklan2").style.display = "none";
         }
     </script>
-    {{-- banner iklan --}}
-    <div class="grup-header fixed top-0 left-0 right-0 z-50 ">
-        <div id="iklan" class="popup-iklan">
 
+    <div class="grup-header fixed top-0 left-0 right-0 z-50 ">
+        {{-- <div id="iklan" class="popup-iklan">
             <div class="body">
                 <button onclick="hideElements()" style="border: none" class="dismis">
                     X
                 </button>
                 <a>
                     <div class="content">
-                        <!--<img src="assets/img/iklan-1.jpeg" alt="">-->
                         <img src="{{ asset('assets/iklan/penutupan.png') }}" alt="">
                     </div>
                 </a>
 
             </div>
         </div>
-        <div id="iklan2" class="bg"></div>
-        <!-- Banner Ads -->
+        <div id="iklan2" class="bg"></div> --}}
+
+
         <div class="flex justify-around w-full bg-[#173966] ">
             <img src="{{ asset('assets/Coming Soon.png') }}" class="w-[40em]" alt="">
-            {{-- <div class="logo">
-                <img src="{{asset('assets/logo-src.png')}}" width="100" alt="">
-            </div>
-            <div class="block text-center">
-                <h1 class="text-white font-bold text-2xl inter">COMING SOON</h1>
-                <h2 class="text-white">On August, 25 2024</h2>
-            </div>
-            <div class="logo">
-                <img src="{{asset('assets/logo-src.png')}}" width="100" alt="">
-            </div> --}}
-
         </div>
 
-        <nav class="navbar justify-around bg-white items-center px-3 py-2 shadow-sm">
-            <div class="flex items-center gap-10">
-                <div class="logo flex items-center">
+        <nav class="navbar justify-between bg-white items-center lg:px-36 px-10 py-2 shadow-sm">
+            <div class="flex justify-between items-center gap-10">
+                <div class="logo flex gap-5  items-center">
                     <a href="{{ url('/') }}">
-                        <img class="logo-src" src="{{ asset('assets/logo-src.png') }}" width="100" alt="logo">
+                        <img class="logo-src" src="{{ asset('assets/logo-src.png') }}" width="50" alt="logo">
                     </a>
+                <button class="hover:scale-105 transition-all" onclick="window.location.href='https://sukarobot.com/'"> 
+                    <span class="bg-blue-500 text-white text-[13px] lg:px-5 py-2 px-2 font-bold inter  rounded-full"> Sukarobot Academy</span>
+                </button> 
                 </div>
-                <ul class="hidden lg:flex justify-center items-center font-medium gap-14 inter text-[17px] text-black">
-                    <li><a class="page-scroll" href="{{ url('/') }}">Beranda</a></li>
-                    <li><a class="page-scroll" href="#competition">Perlombaan</a></li>
-                    <li><a class="page-scroll" href="#directive">Petunjuk Teknis</a></li>
-                    <li><a class="page-scroll" href="#galeri">Galeri</a></li>
-                    <li><a class="page-scroll" href="#lokasi">Lokasi</a></li>
-                </ul>
+               
             </div>
+           
             <div class="relative flex items-center gap-4">
+                <ul class="hidden  lg:flex justify-center items-center  gap-14 inter text-[15px] text-black">
+                    <li><a class="page-scroll active text-[#F07602] hover:text-[#F07602] font-bold"
+                            href="{{ url('/') }}" style="text-decoration: none">Beranda</a>
+                    </li>
+                    <li><a class="page-scroll text-[#000000FF] hover:text-[#F07602]" href="#competition"
+                            style="text-decoration: none">Perlombaan</a></li>
+                    <li><a class="page-scroll text-[#000000FF] hover:text-[#F07602]" href="#directive"
+                            style="text-decoration: none">Petunjuk Teknis</a></li>
+                    <li><a class="page-scroll text-[#000000FF] hover:text-[#F07602]" href="#galeri"
+                            style="text-decoration: none">Galeri</a></li>
+                    <li><a class="page-scroll text-[#000000FF] hover:text-[#F07602]" href="#lokasi"
+                            style="text-decoration: none">Lokasi</a></li>
+                </ul>
                 <button class="lg:hidden w-full" onclick="modalNav()">
                     <img class="w-5" src="{{ asset('assets/humburger.png') }}" alt="">
                 </button>
@@ -289,7 +295,7 @@
                                         stroke-width="2" d="m1 1 4 4 4-4" />
                                 </svg>
                             </button>
-                            {{-- dropdown menu --}}
+
                             <div id="dropdownInformation"
                                 class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
                                 <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
@@ -317,12 +323,12 @@
                         </li>
                     </ul>
                 @else
-                    <div class="grup lg:block hidden">
+                    {{-- <div class="grup lg:block hidden">
                         <a href="{{ route('login') }}" style="text-decoration: none"
                             class="text-white no-underline rounded-full gradient-blue px-4 py-1">Masuk</a>
                         <a href="{{ route('register') }}" style="text-decoration: none"
                             class="text-black rounded-full gradient-yellow px-4 py-1">Register</a>
-                    </div>
+                    </div> --}}
                 @endauth
             </div>
         </nav>
@@ -336,7 +342,6 @@
         class="lg:hidden hidden slide-top  fixed inset-x-0 bottom-0 h-[40em] rounded-t-[80px] z-50  bg-white shadow-md">
         <button onclick="deleteModal()"
             class="dismiss relative right-10 -bottom-10 w-full flex justify-end items-endr ">
-            <?xml version="1.0" encoding="UTF-8"?>
             <svg width="30px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink">
                 <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
@@ -359,7 +364,7 @@
                 <li
                     class=" bg-white border-black flex flex-col justify-start items-center  rounded-lg text-black py-2">
                     <a href="{{ url('/') }}" style="text-decoration:none">
-                        <?xml version="1.0" encoding="utf-8"?>
+
                         <svg width="60px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd"
                                 d="M2.33537 7.87495C1.79491 9.00229 1.98463 10.3208 2.36407 12.9579L2.64284 14.8952C3.13025 18.2827 3.37396 19.9764 4.54903 20.9882C5.72409 22 7.44737 22 10.8939 22H13.1061C16.5526 22 18.2759 22 19.451 20.9882C20.626 19.9764 20.8697 18.2827 21.3572 14.8952L21.6359 12.9579C22.0154 10.3208 22.2051 9.00229 21.6646 7.87495C21.1242 6.7476 19.9738 6.06234 17.6731 4.69181L16.2882 3.86687C14.199 2.62229 13.1543 2 12 2C10.8457 2 9.80104 2.62229 7.71175 3.86687L6.32691 4.69181C4.02619 6.06234 2.87583 6.7476 2.33537 7.87495ZM13.45 16.5095C12.6422 15.6377 11.3581 15.6377 10.5503 16.5095C10.2688 16.8134 9.79427 16.8315 9.49041 16.55C9.18656 16.2684 9.16845 15.7939 9.44996 15.4901C10.8514 13.9775 13.1489 13.9775 14.5503 15.4901C14.8318 15.7939 14.8137 16.2684 14.5099 16.55C14.206 16.8315 13.7315 16.8134 13.45 16.5095ZM8.55029 14.3505C10.4626 12.2864 13.5376 12.2864 15.4499 14.3505C15.7315 14.6544 16.206 14.6725 16.5098 14.391C16.8137 14.1095 16.8318 13.6349 16.5503 13.3311C14.0443 10.6262 9.9559 10.6262 7.44995 13.3311C7.16844 13.6349 7.18655 14.1095 7.4904 14.391C7.79425 14.6725 8.26878 14.6544 8.55029 14.3505ZM17.4499 12.192C14.433 8.93571 9.56716 8.93571 6.55027 12.192C6.26876 12.4959 5.79423 12.514 5.49038 12.2325C5.18653 11.951 5.16842 11.4764 5.44993 11.1726C9.06046 7.27552 14.9397 7.27552 18.5503 11.1726C18.8318 11.4764 18.8137 11.951 18.5098 12.2325C18.206 12.514 17.7314 12.4959 17.4499 12.192Z"
@@ -371,7 +376,6 @@
                 <li class=" bg-white border-black   rounded-lg text-black py-2">
                     <a href="#competition" class="flex flex-col justify-center items-center  "
                         style="text-decoration:none">
-                        <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
                         <svg width="60px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M20.5 6.5L18.5 4.5M9.5 2.5H13.5M7.2 12.2143L9.2 10.5V16.5M19.5 13.5C19.5 17.9183 15.9183 21.5 11.5 21.5C7.08172 21.5 3.5 17.9183 3.5 13.5C3.5 9.08172 7.08172 5.5 11.5 5.5C15.9183 5.5 19.5 9.08172 19.5 13.5ZM13.7 16.5C12.8716 16.5 12.2 15.8284 12.2 15V12C12.2 11.1716 12.8716 10.5 13.7 10.5C14.5284 10.5 15.2 11.1716 15.2 12V15C15.2 15.8284 14.5284 16.5 13.7 16.5Z"
@@ -383,7 +387,7 @@
                 <li class=" bg-white border-black   rounded-lg text-black py-2">
                     <a href="#directive" class="flex flex-col gap-2 justify-center items-center"
                         style="text-decoration:none">
-                        <?xml version="1.0" encoding="utf-8"?>
+
                         <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
                         <svg fill="#1C274C" width="60px" viewBox="0 0 32 32" version="1.1"
                             xmlns="http://www.w3.org/2000/svg">
@@ -398,7 +402,7 @@
                 <li class=" bg-white border-black   rounded-lg text-black py-2">
                     <a href="#galeri" class="flex flex-col gap-2 justify-center items-center  "
                         style="text-decoration:none">
-                        <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+
                         <svg width="60px" fill="#1C274C" viewBox="0 0 32 32" version="1.1"
                             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                             xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" fill="#1C274C">
@@ -425,8 +429,7 @@
                 <li class=" bg-white border-black   rounded-lg text-black py-2">
                     <a href="#lokasi" class="flex flex-col gap-2 justify-center items-center"
                         style="text-decoration:none">
-                        <?xml version="1.0" encoding="UTF-8"?>
-                        <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+
                         <svg width="60px" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg"
                             xmlns:xlink="http://www.w3.org/1999/xlink">
                             <title>about</title>
@@ -466,12 +469,12 @@
                 </li>
             </ul>
         @else
-            <div class="relative flex  justify-center inset-x-0 -bottom-20 gap-3 ">
+            {{-- <div class="relative flex  justify-center inset-x-0 -bottom-20 gap-3 ">
                 <a href="{{ route('login') }}" style="text-decoration: none"
                     class="text-white no-underline rounded-full  gradient-blue px-5 py-2">Masuk</a>
                 <a href="{{ route('register') }}" style="text-decoration: none"
                     class="text-black rounded-full  gradient-yellow px-5 py-2">Register</a>
-            </div>
+            </div> --}}
         @endauth
 
     </div>

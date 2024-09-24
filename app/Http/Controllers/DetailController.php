@@ -15,8 +15,6 @@ use Midtrans\Config;
 class DetailController extends Controller
 {
 
-
-
     public function index($id) {
         $user = Auth::user();
         $data = Race::with('category')->find($id);
@@ -75,19 +73,10 @@ class DetailController extends Controller
         $user = Auth::User();
         $data = Race::find($id);
         $user = Auth::user();
-        // data diambil dari awal
-
-        // $invoice = DB::table('invoice_races')
-        //     ->join('Invoices', 'invoice_races.invoice_id', '=', 'Invoices.id')
-        //     ->where('invoice_races.race_id', $id)
-        //     ->select('Invoices.*', 'invoice_races.*')
-        //     ->first();
-
-        // data diamabildari yang pertama
         $invoice = DB::table('invoice_races')
             ->join('invoices', 'invoice_races.invoice_id', '=', 'invoices.id')
             ->where('invoice_races.race_id', $id)
-            ->orderBy('invoices.created_at', 'desc')  // Order by the latest created
+            ->orderBy('invoices.created_at', 'desc')  
             ->select('invoices.*', 'invoice_races.*')
             ->first();
         $nameInvoice = Invoice::where('name', $invoice->name)
@@ -106,8 +95,7 @@ class DetailController extends Controller
         }
 
         if ($invoice->diskon) {
-            $jumlahPrice = ($data->price * $invoice->jumlah) * ((100 - $invoice->diskon) / 100);
-
+            $jumlahPrice = ($data->price * $invoice->jumlah) * ((100 - $invoice->diskon) / 100);  
             if ($invoice->diskon == 100) {
                 $nameInvoice->snap_token = null;
             } else {
@@ -138,10 +126,15 @@ class DetailController extends Controller
 
         } else {
             $jumlahPrice = $data->price * $invoice->jumlah;
+            $potonganPersentase = 0.7 / 100; // 0.7%
+    
+            $admin = $jumlahPrice * $potonganPersentase;
+
+            $total = $jumlahPrice + $admin;
         }
 
-        return view('components.user.payment', compact('data', 'user', 'invoice', 'snapToken', 'jumlahPrice'));
-    }
+        return view('components.user.payment', compact('data', 'user', 'invoice', 'snapToken', 'jumlahPrice','admin','total'));
+    } 
 
     public function create(Request $request , $id) {
         $data = Race::find($id);
