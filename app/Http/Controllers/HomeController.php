@@ -9,6 +9,7 @@ use App\Models\Invoice;
 use App\Models\LocationEvent;
 use App\Models\Organized;
 use App\Models\Race;
+use App\Models\SubForm;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -27,7 +28,9 @@ class HomeController extends Controller
         $organize = Organized::where('type', 'organize')->get();
         $mediapartner = Organized::where('type', 'media_partner')->get();
 
-        return view('welcome', compact('data','item', 'lokasi', 'sponsor','organize','mediapartner'));
+        $fecth = SubForm::orderBy('created_at', 'DESC')->first();
+
+        return view('welcome', compact('data','item', 'lokasi', 'sponsor','organize','mediapartner','fecth'));
     }
 
     public function show($slug)

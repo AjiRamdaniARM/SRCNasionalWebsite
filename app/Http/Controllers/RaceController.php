@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\RaceRequest;
 use App\Models\Category;
 use App\Models\Race;
+use App\Models\SubForm;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -36,14 +37,17 @@ class RaceController extends Controller
                 ->rawColumns(['image', 'action'])
                 ->toJson();
 
-
     }
 
     $title = 'Delete race!';
     $text = "Are you sure, you want to delete ??";
     confirmDelete($title, $text);
 
-    return view('dashboard.race.index');
+    // fetch data tables subForm
+    $fetchdata = SubForm::orderBy('created_at', 'DESC')->first();
+
+
+    return view('dashboard.race.index', compact('fetchdata'));
 
 }
 
@@ -218,4 +222,50 @@ class RaceController extends Controller
             return redirect()->route('race.index');
         }
     }
+
+    public function sub_form(Request $request)
+    {
+        if ($request->has('fetchInput')) {
+            $fetchInput = $request->input('fetchInput');
+        
+            // Validasi input
+            if (!$fetchInput) {
+                return back()->withErrors('Input tidak boleh kosong.');
+            }
+        
+            // Simpan ke database
+            $sendtodatabase = SubForm::create([
+                'link_form' => $fetchInput
+            ]);
+        
+            // Jika berhasil, kembalikan dengan pesan sukses
+            return back()->with('success', 'Data berhasil disimpan!');
+        } else {
+            // Jika input tidak ditemukan, kembalikan tanpa pesan
+            return back()->withErrors('Input tidak ditemukan.');
+        }
+    
+    }
+    public function updateForm(Request $request, $id)
+    {
+        // Validasi jika fetchInput ada
+        if ($request->has('fetchInput')) {
+            // Cari data berdasarkan ID
+            $fetchInput = SubForm::find($id);
+            // Cek apakah data ditemukan
+            if (!$fetchInput) {
+                return back()->withErrors('Data tidak ditemukan.');
+            }
+            // Update data dengan nilai dari input
+            $fetchInput->link_form = $request->input('fetchInput');
+            $fetchInput->save();
+    
+            // Jika berhasil, kembalikan dengan pesan sukses
+            return back()->with('success', 'Data berhasil diupdate!');
+        } else {
+            // Jika input tidak ditemukan, kembalikan tanpa pesan
+            return back()->withErrors('Input tidak ditemukan.');
+        }
+    }
+    
 }

@@ -30,12 +30,14 @@
     <div class="relative mt-10">
         <div class="mx-auto">
             <div class="banner w-full h-96 relative">
-                <div class="text absolute inset-0 flex items-center justify-center z-10">
+                <div class="text absolute inset-0 flex items-center justify-center  z-10" style="margin-top: 100px">
                     <img class="w-56 md:w-56 lg:w-64 xl:w-72" src="{{ asset('assets/logo-src.png') }}" alt="logo-brc">
                 </div>
-                <img src="{{ asset('assets/banner2.jpg') }}" alt="banner"
-                    class="banner-img w-full h-full lg:object-center object-cover object-left-bottom
+                <img src="{{ asset('assets/banner1.png') }}" alt="banner"
+                    class="banner-img w-full h-full lg:object-center hidden lg:block object-cover object-left-bottom
                 ">
+                <img src="{{ asset('assets/banner2.png') }}" alt="banner"
+                class="banner-img w-full h-full  object-cover lg:hidden block ">
             </div>
         </div>
     </div>
@@ -108,37 +110,26 @@
                 <div class="max-w-xl mb-6">
                     <h2
                         class="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
-                        Dukungan Penjabat Wali <br class="hidden md:block" />
-                        <span class="text-blue-500">Kota Sukabumi</span>
+                        BRC Tingkat Nasional <br class="hidden md:block" />
+                        <span class="text-orange-500">Kota Bogor</span>
                     </h2>
                     <p class="text-base text-gray-700 md:text-lg">
-                        "SRC merupakan kompetisi tahunan yang luar biasa. Karena kegiatan ini bukan hanya tentang
+                        "BRC merupakan kompetisi tahunan yang luar biasa. Karena kegiatan ini bukan hanya tentang
                         teknologi dan robot, tetapi juga tentang kolaborasi, inovasi dan semangat untuk belajar. Selain
                         itu hadiah menarik dan penghargaan yang menanti untuk para pemenang…."
                     </p>
                 </div>
                 <hr class="mb-6 border-gray-300" />
-                <div class="flex">
-                    <a aria-label="Play Song" class="mr-3">
-                        <div
-                            class="flex items-center justify-center w-10 h-10 text-white transition duration-300 transform rounded-full shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 hover:scale-110">
-                            <img class="rounded-full w-full h-full object-cover"
-                                src="https://upload.wikimedia.org/wikipedia/commons/f/f5/Kusmana_Hartadji.jpg"
-                                alt="">
-                        </div>
-
-                    </a>
-                    <div class="flex flex-col">
-                        <div class="text-sm font-semibold">Bapak Drs. Kusmana Hartadji, M.M.</div>
-                        <div class="text-xs text-gray-700">Pj Walikota Sukabumi</div>
-                    </div>
-                </div>
+                
             </div>
 
-            <video class=" h-80 max-w-full border border-gray-200 rounded-lg dark:border-gray-700" controls>
-                <source src="{{ asset('assets/video/Video Ucapan PJ Walikota Sukabumi.mp4') }}" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+            <div class="relative h-80 max-w-full rounded-lg overflow-hidden">
+                <img src="{{asset('assets/src.jpg')}}" class="h-full w-full object-cover">
+                <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white text-3xl font-bold opacity-0 hover:opacity-100 transition-opacity font-sans duration-300">
+                    SRC 2024
+                </div>
+            </div>
+            
 
         </div>
     </div>
@@ -146,7 +137,7 @@
     <div class="  relative w-full mb-8  " style=" overflow:hidden ">
         <div id="competition" class="perlombaan container lg:p-[60px] p-4 lg:max-w-screen-xl">
             <div
-                class="lg:text-[24px] text-[20px] relative mb-2 leading-normal font-extrabold tracking-tight text-gray-900">
+                class="lg:text-[24px] py-4 text-[20px] relative mb-2 leading-normal font-extrabold tracking-tight text-gray-900">
                 ⭐Perlombaan Robotik
             </div>
 
@@ -161,7 +152,7 @@
                                         alert('Mohon Maaf Pendaftaran sudah ditutup :)')
                                     }
                                 </script>
-                                <a href="#" style="text-decoration: none">
+                                <a href="{{$fecth->link_form}}" target="_blank" style="text-decoration: none">
                                     <img src="{{ $datas->image }}" alt=" random imgee"
                                         class="w-full object-cover object-center rounded-lg shadow-md">
                                 </a>
@@ -462,7 +453,7 @@
 
 
     </div>
-    <div class="content-respasi-hotel py-3 px-2">
+    {{-- <div class="content-respasi-hotel py-3 px-2">
         <div class="body flex flex-col  justify-center items-center">
             <button
                 class="bg-blue-500 hover:scale-105 focus:scale-105 transition-all rounded-lg hover:bg-gray-500 hover:text-black focus:bg-gray-500 focus:text-black px-10 text-white py-2"
@@ -473,7 +464,7 @@
                 <span><a href="https://wa.link/qavgnl" class="text-blue-400">0877 7292 1119</a></span> )
             </h1>
         </div>
-    </div>
+    </div> --}}
     <div id="lokasi" class="teknis relative w-full h-96 ">
         <div
             class="text absolute inset-0 m-5  py-38  lg:py-0 flex flex-col lg:items-center justify-center  lg:bottom-15 z-10">

@@ -2,7 +2,8 @@
 
     {{-- === modal pay seleksi 2 === --}}
     <dialog id="formulir">
-        <form method="POST" >
+        @if ($fetchdata == null)
+        <form method="POST" action="{{route('subForm')}}">
             @csrf
             <h2 class="poppins-bold">Formulir Google </h2>
             <div style="border: 2px solid #0080ff" class="block bg-white shadow-md rounded-2xl px-10 py-3 ">
@@ -11,13 +12,32 @@
             </div>
             <div class="block p-5 bg-blue-300 rounded-2xl relative mt-4" >
                 <h6 class=" text-2xl text-blue-800 font-bold">Link Google Form</h6>
-               <input type="text" style="border-radius: 15px" name="formGoogle" id="formGoogle">
+               <input type="text" style="border-radius: 15px" name="fetchInput" id="fetchInput">
             </div>
             <button type="submit"
                 class="block bg-blue-400 relative mt-4 rounded-xl w-full py-3 text-white font-bold hover:bg-blue-300 ">
                 Create Form
             </button>
         </form>
+        @else
+        <form method="POST" action="{{route('subFormUpdate',['id' => $fetchdata->id ])}}">
+            @csrf
+            <h2 class="poppins-bold">Formulir Google </h2>
+            <div style="border: 2px solid #0080ff" class="block bg-white shadow-md rounded-2xl px-10 py-3 ">
+                <h1 class="poppins-semibold text-start">Untuk Form Pendaftaran <span>
+                    </span></h1>
+            </div>
+            <div class="block p-5 bg-blue-300 rounded-2xl relative mt-4" >
+                <h6 class=" text-2xl text-blue-800 font-bold">Link Google Form</h6>
+               <input type="text" value="{{$fetchdata->link_form}}" style="border-radius: 15px" name="fetchInput" id="fetchInput">
+            </div>
+            <button type="submit"
+                class="block bg-blue-400 relative mt-4 rounded-xl w-full py-3 text-white font-bold hover:bg-blue-300 ">
+                Create Form
+            </button>
+        </form>
+        @endif
+       
         <button onclick="window.formulir.close();" aria-label="close" class="x">❌</button>
     </dialog>
 
@@ -127,11 +147,12 @@
     </style>
     {{-- === akhir  modal pay seleksi 2 === --}}
 
-<div class="container py-10 flex justify-between items-center">
+<div class="container py-10 flex flex-wrap gap-4 justify-between items-center">
         <div class="grup-tools">
             <h1 class="poppins-bold text-2xl lg:text-4xl text-[#34364A]">Perlombaan Manage</h1>
             <p class="rela">manage admin</p>
         </div>
+
         <div class="block
         ">
         <button onclick="window.formulir.showModal();" class="btn btn-primary mb-3">Form Google</button>

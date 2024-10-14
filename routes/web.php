@@ -129,6 +129,11 @@ Route::middleware('auth')->group(function () {
     Route::get('excel/{id}', [ExportController::class, 'excel'])->name('export.excel');
     Route::get('participants/export', [ExportController::class, 'allexcel'])->name('participants.excel');
     Route::get('pdf/{id}', [ExportController::class, 'pdf'])->name('export.pdf');
+
+
+    // === route sub form === //
+    Route::post('/dashboard/subForm', [RaceController::class, 'sub_form'])->name('subForm');
+    Route::post('/dashboard/subForm/{id}', [RaceController::class, 'updateForm'])->name('subFormUpdate');
 });
 
 Route::get('/{slug}', [HomeController::class, 'show']);
